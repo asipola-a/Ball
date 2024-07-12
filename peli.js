@@ -11,8 +11,8 @@ let paddleX = (canvas.width - paddleWidth) / 2;
 const ballRadius = 10;
 let ballX = canvas.width / 2;
 let ballY = canvas.height - 30;
-let ballDX = 3; // Alkuarva 1
-let ballDY = -3; // Alkuarvo 1
+let ballDX = 2; // Alkuarva 1
+let ballDY = -2; // Alkuarvo 1
 
 let gameOver = false;
 let score = 0;
@@ -50,7 +50,7 @@ function drawPaddle() {
 function drawBall() {
     ctx.beginPath();
     ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);
-    ctx.fillStyle = '##FF0000';  // Kirkkaan sininen
+    ctx.fillStyle = '#FF00FF';  // Kirkkaan pinkki
     ctx.fill();
     ctx.closePath();
 }
@@ -89,9 +89,9 @@ function draw() {
             document.getElementById('score').innerText = `Pisteet: ${score}`;
 
             // Lisää nopeutta jokaisen 2 pisteen kohdalla
-            if (score % 2 === 0) {
-                ballDX += 2;
-                ballDY -= 2; // Voit muuttaa tätä arvoa tarpeen mukaan
+            if (score % 3 === 0) {
+                ballDX += 1;
+                ballDY -= 1; // Voit muuttaa tätä arvoa tarpeen mukaan
             }
         } else {
             gameOver = true; // Pelin loppuminen
