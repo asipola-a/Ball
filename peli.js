@@ -12,8 +12,8 @@ let paddleX = (canvas.width - paddleWidth) / 2;
 const ballRadius = 10;
 let ballX = canvas.width / 2;
 let ballY = canvas.height - 30;
-let ballDX = 6;
-let ballDY = -6;
+let ballDX = 2;
+let ballDY = -2;
 
 let gameOver = false;
 let score = 0;
