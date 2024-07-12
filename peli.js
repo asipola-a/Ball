@@ -88,8 +88,8 @@ function draw() {
             score++;
             document.getElementById('score').innerText = `Pisteet: ${score}`;
 
-            // Lisää nopeutta jokaisen 10 pisteen kohdalla
-            if (score % 10 === 0) {
+            // Lisää nopeutta jokaisen 2 pisteen kohdalla
+            if (score % 2 === 0) {
                 ballDX += 1;
                 ballDY -= 1; // Voit muuttaa tätä arvoa tarpeen mukaan
             }
