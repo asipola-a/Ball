@@ -1,7 +1,6 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
-// Asetetaan canvasin koko ikkunan kokoiseksi
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -12,8 +11,8 @@ let paddleX = (canvas.width - paddleWidth) / 2;
 const ballRadius = 10;
 let ballX = canvas.width / 2;
 let ballY = canvas.height - 30;
-let ballDX = 3;
-let ballDY = -3;
+let ballDX = 1; // Alkuarvo 1
+let ballDY = -1; // Alkuarvo 1
 
 let gameOver = false;
 let score = 0;
@@ -23,7 +22,6 @@ document.getElementById('highScore').innerText = `Paras tulos: ${highScore}`;
 
 // Kuunnellaan kosketustapahtumia
 canvas.addEventListener('touchmove', handleTouchMove, false);
-// Kuunnellaan hiiritapahtumia
 canvas.addEventListener('mousemove', handleMouseMove, false);
 
 function handleTouchMove(event) {
@@ -70,6 +68,8 @@ function draw() {
             localStorage.setItem('highScore', highScore);
             document.getElementById('highScore').innerText = `Paras tulos: ${highScore}`;
         }
+
+        document.getElementById('restartButton').style.display = 'block'; // Näytetään nappi
         return;
     }
 
@@ -87,8 +87,14 @@ function draw() {
             ballDY = -ballDY;
             score++;
             document.getElementById('score').innerText = `Pisteet: ${score}`;
+
+            // Lisää nopeutta jokaisen 10 pisteen kohdalla
+            if (score % 10 === 0) {
+                ballDX += 1;
+                ballDY -= 1; // Voit muuttaa tätä arvoa tarpeen mukaan
+            }
         } else {
-            gameOver = true;
+            gameOver = true; // Pelin loppuminen
         }
     }
 
@@ -100,3 +106,16 @@ function draw() {
 
 // Aloitetaan piirtäminen
 draw();
+
+function restartGame() {
+    gameOver = false;
+    score = 0;
+    ballX = canvas.width / 2;
+    ballY = canvas.height - 30;
+    ballDX = 1; // Alkuarvo 1
+    ballDY = -1; // Alkuarvo 1
+    paddleX = (canvas.width - paddleWidth) / 2;
+    document.getElementById('score').innerText = `Pisteet: ${score}`;
+    document.getElementById('restartButton').style.display = 'none'; // Piilotetaan nappi
+    draw(); // Aloitetaan piirtäminen uudelleen
+}
