@@ -50,7 +50,7 @@ function drawPaddle() {
 function drawBall() {
     ctx.beginPath();
     ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);
-    ctx.fillStyle = '#FF00FF';  // Kirkkaan pinkki
+    ctx.fillStyle = '#FFFF00';  // Kirkkaan keltainen
     ctx.fill();
     ctx.closePath();
 }
@@ -112,8 +112,8 @@ function restartGame() {
     score = 0;
     ballX = canvas.width / 2;
     ballY = canvas.height - 30;
-    ballDX = 1; // Alkuarvo 1
-    ballDY = -1; // Alkuarvo 1
+    ballDX = 2; // Alkuarvo 1
+    ballDY = -2; // Alkuarvo 1
     paddleX = (canvas.width - paddleWidth) / 2;
     document.getElementById('score').innerText = `Pisteet: ${score}`;
     document.getElementById('restartButton').style.display = 'none'; // Piilotetaan nappi
