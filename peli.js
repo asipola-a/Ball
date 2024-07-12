@@ -11,7 +11,7 @@ let paddleX = (canvas.width - paddleWidth) / 2;
 const ballRadius = 10;
 let ballX = canvas.width / 2;
 let ballY = canvas.height - 30;
-let ballDX = 1; // Alkuarvo 1
+let ballDX = 1; // Alkuarva 1
 let ballDY = -1; // Alkuarvo 1
 
 let gameOver = false;
