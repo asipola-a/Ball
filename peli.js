@@ -50,7 +50,7 @@ function drawPaddle() {
 function drawBall() {
     ctx.beginPath();
     ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);
-    ctx.fillStyle = '#FF69B4';  // Kirkkaan pinkki
+    ctx.fillStyle = '##FF0000';  // Kirkkaan sininen
     ctx.fill();
     ctx.closePath();
 }
