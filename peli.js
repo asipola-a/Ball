@@ -11,8 +11,8 @@ let paddleX = (canvas.width - paddleWidth) / 2;
 const ballRadius = 10;
 let ballX = canvas.width / 2;
 let ballY = canvas.height - 30;
-let ballDX = 1; // Alkuarva 1
-let ballDY = -1; // Alkuarvo 1
+let ballDX = 3; // Alkuarva 1
+let ballDY = -3; // Alkuarvo 1
 
 let gameOver = false;
 let score = 0;
@@ -90,8 +90,8 @@ function draw() {
 
             // Lisää nopeutta jokaisen 2 pisteen kohdalla
             if (score % 2 === 0) {
-                ballDX += 1;
-                ballDY -= 1; // Voit muuttaa tätä arvoa tarpeen mukaan
+                ballDX += 2;
+                ballDY -= 2; // Voit muuttaa tätä arvoa tarpeen mukaan
             }
         } else {
             gameOver = true; // Pelin loppuminen
